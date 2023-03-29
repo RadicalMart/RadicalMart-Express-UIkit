@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.9" type="package" method="upgrade">
+<extension version="4.2" type="package" method="upgrade">
 	<name>PKG_RADICALMART_EXPRESS_UIKIT</name>
 	<packagename>radicalmart_express_uikit</packagename>
 	<author>Delo Design</author>
@@ -20,7 +20,7 @@
 	</files>
 	<updateservers>
 		<server type="extension" priority="1" name="RadicalMart Express - UIkit">
-			https://site.com/update?extension=pkg_radicalmart_express_uikit
+			https://sovmart.ru/update?element=pkg_radicalmart_express_uikit
 		</server>
 	</updateservers>
 </extension>
