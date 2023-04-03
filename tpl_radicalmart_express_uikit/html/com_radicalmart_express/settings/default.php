@@ -60,7 +60,7 @@ foreach ($this->form->getFieldsets() as $key => $fieldset)
 	}
 }
 ?>
-<div id="RadicalMartExpress" class="settings radicalmart-container">
+<div id="RadicalMartExpress" class="settings">
 	<div class="uk-child-width-expand@m uk-grid-medium" uk-grid>
 		<div class="uk-width-1-4@m">
 			<?php echo LayoutHelper::render('components.radicalmart_express.account.sidebar'); ?>
