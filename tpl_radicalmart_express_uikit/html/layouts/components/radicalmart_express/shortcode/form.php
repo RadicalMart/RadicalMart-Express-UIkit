@@ -11,10 +11,8 @@
 
 defined('_JEXEC') or die;
 
-use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\Component\RadicalMartExpress\Site\Helper\CheckoutHelper;
-use Joomla\Component\RadicalMartExpress\Site\Helper\ProductsHelper;
 
 CheckoutHelper::loadAssets();
 
