@@ -28,7 +28,7 @@ $assets->useScript('com_radicalmart_express.site.settings');
 <div class="uk-card uk-card-default" uk-sticky="offset: 90; bottom: true; media: @m;">
 	<div class="uk-card-header">
 		<div class="uk-width-small uk-margin-auto uk-visible-toggle uk-position-relative uk-border-circle uk-overflow-hidden uk-light"
-			 radicalmart-express-settings="avatar">
+			 radicalmart_express-settings="avatar">
 			<div class="uk-height-small uk-cover-container">
 				<?php echo HTMLHelper::image(($avatar) ? $avatar : 'com_radicalmart/no-avatar.svg',
 					htmlspecialchars($user->name), ['class' => 'uk-width-1-1', 'uk-cover' => ''], (!$avatar));
@@ -41,7 +41,7 @@ $assets->useScript('com_radicalmart_express.site.settings');
 			</label>
 		</div>
 		<div class="uk-margin-top uk-text-center">
-			<div class="uk-h4 uk-margin-remove" radicalmart-express-settings-display="name">
+			<div class="uk-h4 uk-margin-remove" radicalmart_express-settings-display="name">
 				<?php echo $user->name; ?>
 			</div>
 			<div class="uk-margin-small">

@@ -15,6 +15,7 @@ use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Form\Form;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
+use Joomla\Component\RadicalMartExpress\Site\Helper\ProductsHelper;
 
 extract($displayData);
 
@@ -30,11 +31,11 @@ extract($displayData);
 $params = ComponentHelper::getParams('com_radicalmart_express');
 if ($comment = $params->get('display_checkout_comment', ''))
 {
-	$comment = RadicalMartExpressHelperProducts::replaceShortcodes(Text::_($comment), $product);
+	$comment = ProductsHelper::replaceShortcodes(Text::_($comment), $product);
 }
 
 $button      = $params->get('display_checkout_button', 'COM_RADICALMART_EXPRESS_PAY');
-$button      = RadicalMartExpressHelperProducts::replaceShortcodes(Text::_($button), $product);
+$button      = ProductsHelper::replaceShortcodes(Text::_($button), $product);
 $buttonClass = $params->get('display_checkout_button_class');
 
 ?>

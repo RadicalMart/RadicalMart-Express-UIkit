@@ -74,12 +74,12 @@ foreach ($this->form->getFieldsets() as $key => $fieldset)
 				</div>
 				<div class="uk-card-body">
 					<?php foreach ($this->form->getFieldsets() as $key => $fieldset): ?>
-						<form id="personal_<?php echo $key; ?>" radicalmart-express-settings="container"
+						<form id="personal_<?php echo $key; ?>" radicalmart_express-settings="container"
 							  class="uk-fieldset uk-margin-medium" onsubmit="return;">
 							<legend class="uk-h4 uk-margin-small"><?php echo Text::_($fieldset->label); ?></legend>
-							<div radicalmart-express-settings="error" class="uk-alert uk-alert-danger uk-margin-small-top"
+							<div radicalmart_express-settings="error" class="uk-alert uk-alert-danger uk-margin-small-top"
 								 style="display: none"></div>
-							<div radicalmart-express-settings="success" class="uk-alert uk-alert-success uk-margin-small-top"
+							<div radicalmart_express-settings="success" class="uk-alert uk-alert-success uk-margin-small-top"
 								 style="display: none"></div>
 							<div>
 								<?php echo str_replace('readonly', 'disabled readonly',

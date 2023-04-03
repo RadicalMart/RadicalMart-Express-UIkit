@@ -15,6 +15,7 @@ use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Form\Form;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
+use Joomla\Component\RadicalMartExpress\Site\Helper\ProductsHelper;
 
 extract($displayData);
 
@@ -29,7 +30,7 @@ extract($displayData);
 
 $params = ComponentHelper::getParams('com_radicalmart_express');
 $title  = $params->get('display_checkout_title', 'COM_RADICALMART_EXPRESS_DISPLAY_CHECKOUT_TITLE');
-$title  = RadicalMartExpressHelperProducts::replaceShortcodes(Text::_($title), $product);
+$title  = ProductsHelper::replaceShortcodes(Text::_($title), $product);
 ?>
 
 <div id="RadicalMartExpressCheckoutModal"

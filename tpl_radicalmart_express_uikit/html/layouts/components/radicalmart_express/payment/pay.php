@@ -43,7 +43,7 @@ extract($displayData);
 				clearInterval(timer);
 				window.location.href = '<?php echo $payment['link']?>';
 			}
-			document.querySelector('[radicalmart-express-payment-timer]').innerText = 10 - (10 - left);
+			document.querySelector('[radicalmart_express-payment-timer]').innerText = 10 - (10 - left);
 			left -= 1;
 		}, 1000);
 </script>
