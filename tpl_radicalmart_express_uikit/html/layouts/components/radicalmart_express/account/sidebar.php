@@ -20,17 +20,17 @@ $user   = Factory::getApplication()->getIdentity();
 $avatar = UserHelper::getAvatar($user->id);
 $menus  = UserHelper::getMenu();
 
-/** @var Joomla\CMS\WebAsset\WebAssetManager $assets */
+/** @var \Joomla\CMS\WebAsset\WebAssetManager $assets */
 $assets = Factory::getApplication()->getDocument()->getWebAssetManager();
 $assets->getRegistry()->addExtensionRegistryFile('com_radicalmart_express');
 $assets->useScript('com_radicalmart_express.site.settings');
 ?>
-<div class="uk-card uk-card-default" uk-sticky="offset: 90; bottom: true; media: @m;">
-	<div class="uk-card-header">
+<div class="uk-card uk-card-default">
+	<div class="uk-card-header uk-padding-small">
 		<div class="uk-width-small uk-margin-auto uk-visible-toggle uk-position-relative uk-border-circle uk-overflow-hidden uk-light"
 			 radicalmart_express-settings="avatar">
 			<div class="uk-height-small uk-cover-container">
-				<?php echo HTMLHelper::image(($avatar) ? $avatar : 'com_radicalmart/no-avatar.svg',
+				<?php echo HTMLHelper::image(($avatar) ? $avatar : 'com_radicalmart_express/no-avatar.svg',
 					htmlspecialchars($user->name), ['class' => 'uk-width-1-1', 'uk-cover' => ''], (!$avatar));
 				HTMLHelper::image('com_radicalmart_express/no-avatar.svg', htmlspecialchars($user->name),
 					['class' => 'uk-width-1-1', 'uk-cover' => ''], true); ?>

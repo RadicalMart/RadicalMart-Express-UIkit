@@ -16,7 +16,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 
 // Load assets
-/** @var Joomla\CMS\WebAsset\WebAssetManager $assets */
+/** @var \Joomla\CMS\WebAsset\WebAssetManager $assets */
 $assets = $this->document->getWebAssetManager();
 if ($this->params->get('radicalmart_express_js', 1))
 {
@@ -32,12 +32,25 @@ if ($this->params->get('trigger_js', 1))
 	<div class="uk-child-width-expand@m uk-grid-medium" uk-grid>
 		<div class="uk-width-1-4@m">
 			<?php echo LayoutHelper::render('components.radicalmart_express.account.sidebar'); ?>
+			<?php if (!empty($this->modules['radicalmart_express-account-sidebar'])): ?>
+				<div class="mt-3">
+					<?php foreach ($this->modules['radicalmart_express-account-sidebar'] as $module): ?>
+						<div class="mb-3">
+							<?php if ($module->showtitle): ?>
+								<div class="h3"><?php echo Text::_($module->title); ?></div>
+							<?php endif; ?>
+							<div><?php echo $module->render; ?></div>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
 		</div>
 		<div>
 			<div class="uk-card uk-card-default uk-card-small">
 				<div class="uk-card-header">
 					<h1 class="uk-h2">
-						<?php echo $this->params->get('seo_orders_h1', Text::_('COM_RADICALMART_EXPRESS_ORDERS')); ?>
+						<?php echo $this->params->get('seo_orders_h1',
+							($this->menuCurrent) ? $this->menu->title : Text::_('COM_RADICALMART_EXPRESS_ORDERS')); ?>
 					</h1>
 				</div>
 				<?php if (empty($this->items)): ?>
@@ -77,7 +90,7 @@ if ($this->params->get('trigger_js', 1))
 										<td><?php echo $item->shipping->get('title'); ?></td>
 									</tr>
 								<?php endif; ?>
-								<?php if ($item->payment):?>
+								<?php if ($item->payment): ?>
 									<tr>
 										<th class="uk-width-medium">
 											<?php echo Text::_('COM_RADICALMART_EXPRESS_PAYMENT'); ?>
@@ -87,7 +100,7 @@ if ($this->params->get('trigger_js', 1))
 								<?php endif; ?>
 								<tr>
 									<th class="uk-width-medium">
-										<?php echo Text::_('COM_RADICALMART_EXPRESS_TOTAL'); ?>
+										<?php echo Text::_('COM_RADICALMART_TOTAL'); ?>
 									</th>
 									<td>
 										<?php echo $item->total['final_string']; ?>
