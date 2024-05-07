@@ -9,8 +9,6 @@
  * @link        https://delo-design.ru/
  */
 
-\defined('_JEXEC') or die;
-
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 
@@ -34,7 +32,7 @@ use Joomla\CMS\Language\Text;
 		</div>
 		<div class="uk-text-right">
 			<div class="uk-text-meta">
-				<?php echo HTMLHelper::date($this->order->created, Text::_('DATE_FORMAT_LC2')); ?>
+				<?php echo HTMLHelper::date($this->order->created, Text::_('DATE_FORMAT_LC5')); ?>
 			</div>
 		</div>
 	</div>
@@ -60,6 +58,7 @@ use Joomla\CMS\Language\Text;
 					<span class="uk-label <?php echo $class; ?>">
 						<?php echo $this->order->status->title; ?>
 					</span>
+
 				<?php else: ?>
 					<span class="uk-label uk-label-danger">
 						<?php echo Text::_('COM_RADICALMART_EXPRESS_ERROR_STATUS_NOT_FOUND'); ?>
