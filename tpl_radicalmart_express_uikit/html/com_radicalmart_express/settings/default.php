@@ -15,7 +15,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 
 // Load assets
-/** @var Joomla\CMS\WebAsset\WebAssetManager $assets */
+/** @var \Joomla\CMS\WebAsset\WebAssetManager $assets */
 $assets = $this->document->getWebAssetManager();
 $assets->useScript('com_radicalmart_express.site.settings')
 	->useScript('keepalive');
@@ -64,17 +64,35 @@ foreach ($this->form->getFieldsets() as $key => $fieldset)
 	<div class="uk-child-width-expand@m uk-grid-medium" uk-grid>
 		<div class="uk-width-1-4@m">
 			<?php echo LayoutHelper::render('components.radicalmart_express.account.sidebar'); ?>
+			<?php if (!empty($this->modules['radicalmart_express-account-sidebar'])): ?>
+				<div class="mt-3">
+					<?php foreach ($this->modules['radicalmart_express-account-sidebar'] as $module): ?>
+						<div class="mb-3">
+							<?php if ($module->showtitle): ?>
+								<div class="h3"><?php echo Text::_($module->title); ?></div>
+							<?php endif; ?>
+							<div><?php echo $module->render; ?></div>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
 		</div>
 		<div>
 			<div class="uk-card uk-card-default uk-card-small">
 				<div class="uk-card-header">
 					<h1 class="uk-h2">
-						<?php echo $this->params->get('seo_settings_h1', Text::_('COM_RADICALMART_EXPRESS_SETTINGS')); ?>
+						<?php echo $this->params->get('seo_settings_h1',
+							($this->menuCurrent) ? $this->menu->title : Text::_('COM_RADICALMART_EXPRESS_SETTINGS')); ?>
 					</h1>
 				</div>
 				<div class="uk-card-body">
-					<?php foreach ($this->form->getFieldsets() as $key => $fieldset): ?>
-						<form id="personal_<?php echo $key; ?>" radicalmart_express-settings="container"
+					<?php foreach ($this->form->getFieldsets() as $key => $fieldset):
+						if (empty($this->form->getFieldset($key)))
+						{
+							continue;
+						}
+						?>
+						<form id="settings_<?php echo $key; ?>" radicalmart_express-settings="container"
 							  class="uk-fieldset uk-margin-medium" onsubmit="return;">
 							<legend class="uk-h4 uk-margin-small"><?php echo Text::_($fieldset->label); ?></legend>
 							<div radicalmart_express-settings="error" class="uk-alert uk-alert-danger uk-margin-small-top"
