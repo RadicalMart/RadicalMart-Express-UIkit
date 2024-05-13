@@ -15,7 +15,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
 
 // Load assets
-/** @var Joomla\CMS\WebAsset\WebAssetManager $assets */
+/** @var \Joomla\CMS\WebAsset\WebAssetManager $assets */
 $assets = $this->document->getWebAssetManager();
 if ($this->params->get('radicalmart_express_js', 1))
 {
