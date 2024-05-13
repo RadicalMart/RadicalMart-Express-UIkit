@@ -149,10 +149,22 @@ foreach ($this->form->getFieldsets() as $key => $fieldset)
 	}
 }
 ?>
-<div id="RadicalMartExpress" class="personal">
+<div id="RadicalMart" class="personal">
 	<div class="uk-child-width-expand@m uk-grid-medium" uk-grid>
 		<div class="uk-width-1-4@m">
 			<?php echo LayoutHelper::render('components.radicalmart_express.account.sidebar'); ?>
+			<?php if (!empty($this->modules['radicalmart_express-account-sidebar'])): ?>
+				<div class="mt-3">
+					<?php foreach ($this->modules['radicalmart_express-account-sidebar'] as $module): ?>
+						<div class="mb-3">
+							<?php if ($module->showtitle): ?>
+								<div class="h3"><?php echo Text::_($module->title); ?></div>
+							<?php endif; ?>
+							<div><?php echo $module->render; ?></div>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
 		</div>
 		<div>
 			<form action="<?php echo $this->link; ?>" name="personalForm" id="personalForm" method="post"
@@ -160,14 +172,15 @@ foreach ($this->form->getFieldsets() as $key => $fieldset)
 				  class="uk-card uk-card-default uk-card-small uk-form form-validate">
 				<div class="uk-card-header">
 					<h1 class="uk-h2">
-						<?php echo $this->params->get('seo_personal_h1', Text::_('COM_RADICALMART_EXPRESS_PERSONAL')); ?>
+						<?php echo $this->params->get('seo_personal_h1',
+							($this->menuCurrent) ? $this->menu->title : Text::_('COM_RADICALMART_EXPRESS_PERSONAL')); ?>
 					</h1>
 				</div>
 				<div class="uk-card-body">
 					<?php if (!empty($sections['contacts'])): ?>
 						<div class="personal-section-contacts uk-margin-large-bottom">
 							<h2 class="h3 mb-3">
-								<?php echo Text::_('COM_RADICALMART_EXPRESS_CONTACTS'); ?>
+								<?php echo Text::_('COM_RADICALMART_CONTACTS'); ?>
 							</h2>
 							<?php foreach ($sections['contacts'] as $fieldset): ?>
 								<fieldset id="personal_<?php echo $fieldset->name; ?>"
