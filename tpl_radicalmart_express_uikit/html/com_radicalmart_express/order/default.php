@@ -2,11 +2,11 @@
 /*
  * @package     RadicalMart Uikit Package
  * @subpackage  tpl_radicalmart_express_uikit
- * @version     __DEPLOY_VERSION__
- * @author      Delo Design - delo-design.ru
- * @copyright   Copyright (c) 2023 Delo Design. All rights reserved.
+ * @version     3.0.0
+ * @author      RadicalMart Team - radicalmart.ru
+ * @copyright   Copyright (c) 2024 RadicalMart. All rights reserved.
  * @license     GNU/GPL license: https://www.gnu.org/copyleft/gpl.html
- * @link        https://delo-design.ru/
+ * @link        https://radicalmart.ru/
  */
 
 \defined('_JEXEC') or die;
@@ -15,7 +15,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\Component\RadicalMartExpress\Site\Helper\MediaHelper;
 
 // Load assets
-/** @var Joomla\CMS\WebAsset\WebAssetManager $assets */
+/** @var \Joomla\CMS\WebAsset\WebAssetManager $assets */
 $assets = $this->document->getWebAssetManager();
 if ($this->params->get('radicalmart_express_js', 1))
 {
@@ -177,14 +177,21 @@ foreach ($this->form->getFieldsets() as $key => $fieldset)
 					<div class="uk-card uk-card-default uk-card-body uk-card-small">
 						<table class="uk-table uk-table-small uk-table-justify uk-table-responsive uk-table-divider uk-margin-small-top uk-margin-remove-bottom">
 							<tbody>
-							<?php foreach ($fields as $field): ?>
+							<?php foreach ($fields as $field):
+								$label = Text::_($this->form->getFieldAttribute($field->fieldname, 'label',
+									'', $field->group));
+								$input = $this->form->getInput($field->fieldname, $field->group);
+								if (empty($label) && empty($input))
+								{
+									continue;
+								}
+								?>
 								<tr>
 									<th class="uk-width-medium">
-										<?php echo Text::_($this->form->getFieldAttribute($field->fieldname, 'label',
-											'', $field->group)); ?>
+										<?php echo $label; ?>
 									</th>
 									<td>
-										<?php echo $this->form->getInput($field->fieldname, $field->group); ?>
+										<?php echo $input; ?>
 									</td>
 								</tr>
 							<?php endforeach; ?>
@@ -195,7 +202,7 @@ foreach ($this->form->getFieldsets() as $key => $fieldset)
 			<?php endforeach; ?>
 		</div>
 		<div class="uk-width-1-4@m">
-			<div class="uk-card uk-card-default uk-card-small" uk-sticky="offset: 30; bottom: true; media: @m;">
+			<div class="uk-card uk-card-default uk-card-small">
 				<?php echo $this->loadTemplate('sidebar'); ?>
 			</div>
 		</div>

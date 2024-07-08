@@ -2,11 +2,11 @@
 /*
  * @package     RadicalMart Shipping Standard Plugin
  * @subpackage  plg_radicalmart_shipping_standard
- * @version     __DEPLOY_VERSION__
- * @author      Delo Design - delo-design.ru
- * @copyright   Copyright (c) 2023 Delo Design. All rights reserved.
+ * @version     3.0.0
+ * @author      RadicalMart Team - radicalmart.ru
+ * @copyright   Copyright (c) 2024 RadicalMart. All rights reserved.
  * @license     GNU/GPL license: https://www.gnu.org/copyleft/gpl.html
- * @link        https://delo-design.ru/
+ * @link        https://radicalmart.ru/
  */
 
 \defined('_JEXEC') or die;
