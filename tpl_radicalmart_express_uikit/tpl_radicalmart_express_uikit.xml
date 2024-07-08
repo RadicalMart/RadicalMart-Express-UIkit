@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="4.2" type="file" method="upgrade">
+<extension type="file" method="upgrade">
 	<name>TPL_RADICALMART_EXPRESS_UIKIT</name>
-	<author>Delo Design</author>
-	<creationDate>April 2023</creationDate>
-	<copyright>Copyright © 2021 Delo Design. All rights reserved.</copyright>
+	<author>RadicalMart Team</author>
+	<creationDate>July 2024</creationDate>
+	<copyright>Copyright © 2024 RadicalMart. All rights reserved.</copyright>
 	<license>https://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
-	<authorEmail>boss@delo-design.ru</authorEmail>
-	<authorUrl>https://delo-design.ru</authorUrl>
-	<version>1.0.1-dev</version>
+	<authorEmail>info@radicalmart.ru</authorEmail>
+	<authorUrl>https://radicalmart.ru/</authorUrl>
+	<version>3.0.0</version>
 	<description>TPL_RADICALMART_EXPRESS_UIKIT_DESCRIPTION</description>
 	<scriptfile>script.php</scriptfile>
 	<fileset>
@@ -17,9 +17,9 @@
 		</files>
 	</fileset>
 	<languages folder="language">
-		<language tag="en-GB">en-GB/en-GB.tpl_radicalmart_express_uikit.ini</language>
-		<language tag="en-GB">en-GB/en-GB.tpl_radicalmart_express_uikit.sys.ini</language>
-		<language tag="ru-RU">ru-RU/ru-RU.tpl_radicalmart_express_uikit.ini</language>
-		<language tag="ru-RU">ru-RU/ru-RU.tpl_radicalmart_express_uikit.sys.ini</language>
+		<language tag="en-GB">en-GB/tpl_radicalmart_express_uikit.ini</language>
+		<language tag="en-GB">en-GB/tpl_radicalmart_express_uikit.sys.ini</language>
+		<language tag="ru-RU">ru-RU/tpl_radicalmart_express_uikit.ini</language>
+		<language tag="ru-RU">ru-RU/tpl_radicalmart_express_uikit.sys.ini</language>
 	</languages>
 </extension>
