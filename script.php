@@ -2,7 +2,7 @@
 /*
  * @package     RadicalMart Express Uikit Package
  * @subpackage  pkg_radicalmart_express_uikit
- * @version     3.0.0
+ * @version     __DEPLOY_VERSION__
  * @author      RadicalMart Team - radicalmart.ru
  * @copyright   Copyright (c) 2024 RadicalMart. All rights reserved.
  * @license     GNU/GPL license: https://www.gnu.org/copyleft/gpl.html
